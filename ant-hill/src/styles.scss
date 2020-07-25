@@ -1,1 +1,138 @@
-/* You can add global styles to this file, and also import other style files */
+//--------------------------------------------------
+// Material Design
+//--------------------------------------------------
+/* Setting up Material Design Theme  */
+@import '~@angular/material/theming';
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+//----------------------------------------------------------------------------------
+
+//* -- Material Design Custom Theme Variables -- *//
+$primary-color: #0062b2;
+$primary-color-warning: #d6312b;
+$font-family: Roboto, "Helvetica Neue", sans-serif;
+
+// Customized Map for theme per: http://mcg.mbitson.com/#!?mypallete=%230062b2
+$md-my-palette: (
+  50: $primary-color,
+  100: $primary-color,
+  200: $primary-color,
+  300: $primary-color,
+  400: $primary-color,
+  500: $primary-color,
+  600: $primary-color,
+  700: $primary-color,
+  800: $primary-color,
+  900: $primary-color,
+  A100: $primary-color,
+  A200: $primary-color,
+  A400: $primary-color,
+  A700: $primary-color,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #ffffff
+  )
+);
+
+$md-my-palette-warning: (
+  50: $primary-color-warning,
+  100: $primary-color-warning,
+  200: $primary-color-warning,
+  300: $primary-color-warning,
+  400: $primary-color-warning,
+  500: $primary-color-warning,
+  600: $primary-color-warning,
+  700: $primary-color-warning,
+  800: $primary-color-warning,
+  900: $primary-color-warning,
+  A100: $primary-color-warning,
+  A200: $primary-color-warning,
+  A400: $primary-color-warning,
+  A700: $primary-color-warning,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #ffffff
+  )
+);
+
+/*
+  see doc here: https://material.angular.io/guide/typography
+ */
+$general-typography: mat-typography-config(
+  $font-family: $font-family,
+  $body-2: mat-typography-level(16px, 1.5, 100, $font-family, 2px),
+  $button: mat-typography-level(16px, 1, 100, $font-family, 4px)
+);
+
+// todo: button line spacing not working above ^
+.mat-button-wrapper {
+  letter-spacing: 3px;
+}
+
+/*
+*  ! This custom theme file should not be imported into other SCSS files (to avoid duplication).
+     - per https://material.angular.io/guide/theming
+
+   Be sure that you only ever include this mixin once! Do not import into other components.
+*/
+@include mat-core($general-typography);
+
+/*
+   Define 3 theme color
+   mat-palette accepts $palette-name, main, lighter and darker variants
+   Available color palettes: https://material.io/design/color/
+*/
+$my-theme-primary: mat-palette($md-my-palette);
+$my-theme-accent: mat-palette($md-my-palette);
+$my-theme-warn: mat-palette($md-my-palette-warning);
+
+$my-theme-primary: mat-palette($md-my-palette);
+$my-theme-accent: mat-palette($md-my-palette);
+$my-theme-warn: mat-palette($md-my-palette-warning);
+
+// create theme (use mat-dark-theme for themes with dark backgrounds)
+$my-theme: mat-light-theme($my-theme-primary, $my-theme-accent, $my-theme-warn);
+
+/*
+   Include theme styles for core and each component used in your app.
+   Alternatively, you can import and @include the theme mixins for each component
+   that you are using.
+*/
+@include angular-material-theme($my-theme);
+
+//--------------------------------------------------
+// HTML ELEMENTS
+//--------------------------------------------------
+html, body {
+  height: 100%;
+  font-weight: 100;
+}
+
+body {
+  margin: 0;
+  background: #eaeaea;
+}

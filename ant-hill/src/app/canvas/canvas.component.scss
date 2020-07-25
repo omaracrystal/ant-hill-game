@@ -1,3 +1,25 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  margin: 20px 0 0 0;
+  font-weight: 100;
+  letter-spacing: 7.5px;
+}
+
 canvas {
-  border-style: solid;
+  border: 1px solid #d8dde6;
+  margin-top: 20px;
+  background: white;
+}
+
+button {
+  margin: 20px;
+  width: 100%;
+  max-width: 150px;
+  padding: 10px;
 }
